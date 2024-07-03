@@ -1,0 +1,54 @@
+body {
+    background-image: url('../imagen/gatos.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem; /* Ajuste general de tamaño de fuente */
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem; /* Reduce el padding */
+}
+
+.table-responsive {
+    width: 100%;
+}
+
+h2 {
+    font-size: 1.25rem; /* Ajuste del tamaño de fuente de los encabezados */
+}
+
+.table {
+    font-size: 0.75rem; /* Ajuste del tamaño de fuente de la tabla */
+}
+
+.btn {
+    font-size: 0.75rem; /* Ajuste del tamaño de fuente de los botones */
+    padding: 0.25rem 0.5rem; /* Ajuste del padding de los botones */
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0.5rem; /* Reduce aún más el padding en pantallas pequeñas */
+    }
+    h2 {
+        font-size: 1rem; /* Ajuste de tamaño de fuente para pantallas pequeñas */
+    }
+    .table {
+        font-size: 0.7rem; /* Ajuste del tamaño de fuente de la tabla en pantallas pequeñas */
+    }
+    .btn {
+        font-size: 0.625rem; /* Ajuste del tamaño de fuente de los botones para pantallas pequeñas */
+        padding: 0.25rem 0.5rem;
+    }
+}

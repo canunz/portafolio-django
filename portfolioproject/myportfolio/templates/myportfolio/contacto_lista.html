@@ -1,0 +1,91 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Contactos Recibidos</h2>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col" class="text-white text-center">Nombre</th>
+                    <th scope="col" class="text-white text-center">Email</th>
+                    <th scope="col" class="text-white text-center">Mensaje</th>
+                    <th scope="col" class="text-white text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contacto in contactos %}
+                <tr>
+                    <td class="text-white text-center">{{ contacto.nombre }}</td>
+                    <td class="text-white text-center">{{ contacto.email }}</td>
+                    <td class="text-white text-center">{{ contacto.mensaje }}</td>
+                    <td class="text-center">
+                        <a href="{% url 'contacto_detalle' contacto.pk %}" class="btn btn-info btn-sm m-1 px-2 py-1">Ver</a>
+                        <a href="{% url 'contacto_editar' contacto.pk %}" class="btn btn-warning btn-sm m-1 px-2 py-1">Editar</a>
+                        <form method="POST" action="{% url 'contacto_eliminar' contacto.pk %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm m-1 px-2 py-1">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    2"></th>
+
+
+                </tr>
+
+            </thead>
+
+        </table>
+
+    </div>
+
+</div>

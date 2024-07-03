@@ -1,0 +1,31 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-3 shadow-lg">
+        <h2 class="text-center mb-4">Detalle del contacto</h2>
+        <div class="p-4">
+            <p><strong>Nombre:</strong> {{ contacto.nombre }}</p>
+            <p><strong>Email:</strong> {{ contacto.email }}</p>
+            <p><strong>Mensaje:</strong> {{ contacto.mensaje }}</p>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'contacto_editar' contacto.pk %}" class="btn btn-primary mx-2">Editar</a>
+            <form method="POST" action="{% url 'contacto_eliminar' contacto.pk %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger mx-2">Eliminar</button>
+            </form>
+            <a href="{% url 'contacto_lista' %}" class="btn btn-secondary mx-2">Volver a la lista</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        backdrop-filter: blur(10px); /* Efecto de desenfoque */
+        border-radius: 10px; /* Bordes redondeados */
+        background-color: rgba(95, 93, 93, 0.5); /* Fondo semi-transparente */
+    }
+</style>
+{% endblock %}
+

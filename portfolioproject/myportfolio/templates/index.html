@@ -1,0 +1,197 @@
+{% load static %}
+{% load bootstrap5 %}
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- STYLES.CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Portafolio personal responsive</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    
+    <!-- HEADER | USANDO NAV-->
+    <header class="header">
+        <a href="#" class="logo"><img src="{% static 'imagen/logo-transparent-png.png' %}" alt=""></a>
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#inicio" class="active">Inicio</a>
+            <a href="#sobremi">Sobre mí</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contact">Contactos</a> <!-- Aquí se ha cambiado el href a #contact -->
+            <a href="#projects">My Projects</a> <!-- Nuevo enlace a la sección de proyectos -->
+        </nav>
+    </header>
+
+    <!-- INICIO -->
+    <section class="inicio" id="inicio">
+        <div class="inicio-content">
+            <h3>Bienvenido(a) a mí portafolio, soy:</h3>
+            <h1>Catalina Núñez</h1>
+            <h3>Soy ingeniera en informática y <span class="multiple-text"> telecomunicaciones</span></h3>
+            <p> Desarrolladora de páginas web utilizando HTML, CSS y JavaScript como base fundamental. Tengo habilidades sólidas en la creación de estructuras web semánticas y accesibles mediante HTML, así como en la aplicación de estilos y diseño utilizando CSS para mejorar la presentación y la experiencia del usuario. </p>
+            <div class="social-media">
+                <a href="https://www.instagram.com/zuck/?hl=es""><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/catalina-núñez-262510294/"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/MarkZukerberg"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://github.com/canunz"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <a href="https://github.com/canunz/portafolio/blob/main/curriculum.pdf.pdf" class="btn" target="_blank">Ver mi CV</a>
+
+        </div>
+
+        <div class="inicio-img">
+            <img src="{% static 'imagen/WhatsApp Image 2024-05-12 at 3.29.25 PM.jpeg' %}" alt="">
+        </div>
+    </section>
+
+    <!-- SOBRE MI -->
+    <section class="sobremi" id="sobremi">
+        <div class="sobremi-img">
+            <img src="{% static 'imagen/cata.jpeg' %}" alt="">
+        </div>
+
+        <div class="sobremi-content">
+            <h2 class="heading">SOBRE <span>Mí</span></h2>
+            <h3>Catalina Núñez Yáñez | Estudiante de Ingeniería en Informática.</h3>
+            <p>Soy un estudiante de informática con conocimientos sólidos en automatización e instalaciones domiciliarias. Como parte de mi formación, he adquirido habilidades técnicas en programación. 
+                Mi interés por la automatización y las instalaciones domiciliarias demuestra mi capacidad para aplicar la tecnología en entornos prácticos y cotidianos. Además, mi perfil proactivo, organizado y responsable 
+                me distingue como una persona confiable y comprometida. Mi capacidad para mantener buenas relaciones interpersonales sugiere que soy colaborativa y me desenvuelvo bien en equipos de trabajo. 
+                Siempre muestro disposición para llevar a cabo mis labores, lo que indica mi compromiso con el éxito de los proyectos en los que participo.</p>
+        </div>
+    </section>
+
+    <!-- SERVICIOS QUE OFREZCO -->
+    <section class="servicios" id="servicios">
+        <h2 class="headinng">Mis <span>Servicios</span></h2>
+
+        <div class="servicios-container">
+            <div class="servicios-box">
+                <i class="fa-solid fa-code"></i>
+                <h3>Diseño y desarrollo de sitios web</h3>
+                <p>Diseño y construcción de sitios web modernos, responsivos y atractivos para diferentes propósitos, como portafolios
+                personales, sitios corporativos, tiendas en línea, blogs.
+                </p>
+            </div>
+
+            <div class="servicios-box">
+                <i class="fa-solid fa-palette"></i>
+                <h3>Mantenimiento y actualización de sitios web</h3>
+                <p>Servicios de mantenimiento y actualización de sitios web existentes, asegurando
+                que estén actualizados, seguros y funcionen correctamente.
+                </p>
+            </div>
+
+            <div class="servicios-box">
+                <i class="fa-brands fa-android"></i>
+                <h3>Desarrollo de APIs y servicios web</h3>
+                <p>Desarrollo APIs (Interfaces de Programación de Aplicaciones) y servicios web para
+                facilitar la integración de diferentes sistemas y aplicaciones.
+                </p>
+            </div>
+        </div>
+    </section>
+
+  
+    <!-- Contact Section -->
+
+  <section id="contact" class="py-5 bg-light">
+
+    <div class="container">
+
+      <h2 class="text-center">Contact Me</h2>
+
+      <form method="POST" action="{% url 'contacto_nuevo' %}" id="contactForm" class="needs-validation" novalidate>
+
+        {% csrf_token %}
+
+        <div class="mb-3">
+
+          <label for="name" class="form-label">Name</label>
+
+          <input type="text" class="form-control" name="nombre" id="name" required>
+
+          <div class="invalid-feedback">Please enter your name.</div>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label for="email" class="form-label">Email</label>
+
+          <input type="email" class="form-control" name="email" id="email" required>
+
+          <div class="invalid-feedback">Please enter a valid email address.</div>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label for="message" class="form-label">Message</label>
+
+          <textarea class="form-control" id="message" rows="3" name="mensaje" required></textarea>
+
+          <div class="invalid-feedback">Please enter your message.</div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-5">
+    <div class="container">
+        <h2 class="text-center">My Projects</h2>
+        <div class="row">
+            {% for proyecto in proyectos %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ proyecto.imagen.url }}" class="card-img-top" alt="{{ proyecto.titulo }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ proyecto.titulo }}</h5>
+                        <p class="card-text">{{ proyecto.descripcion }}</p>
+                        <a href="{{ proyecto.link_sitio }}" class="btn btn-primary" target="_blank">Web</a>
+                        <a href="{{ proyecto.link_repositorio }}" class="btn btn-secondary" target="_blank">Repositorio</a>
+                        <a href="{% url 'proyecto_detalle' proyecto.pk %}" class="btn btn-info">Ver Detalle</a> <!-- Nuevo botón -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+        <!-- DERECHOS RESERVADOS-->
+        <footer class="footer">
+          <div class="footer-text">
+              <p>Copyright &copy; 2024 by @catalinanuñez | Todos los derechos reservados.</p>
+          </div>
+  
+          <div class="footer-iconTop">
+              <a href="#inicio"><i class="fa-solid fa-angle-up"></i></a>
+          </div>
+      </footer>
+
+    <!-- SCROLL JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- TYPED JS -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- SCRIPT.JS -->
+  
+
+    {% bootstrap_javascript %}
+</body>
+</html>
+
